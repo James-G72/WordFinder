@@ -46,9 +46,20 @@ for char in order:
                 check_possition += 1
     order_count += 1
 
-for printer in word_list:
-    indent_print(printer)
-    print("\n")
+if keys != "":
+    if keys.split(" ") == keys:
+        keys = [keys]
+    else:
+        keys = keys.split(" ")
+    for key in keys:
+        for line in word_list:
+            if key in line:
+                indent_print(line)
+                print("\n")
+else:
+    for line in word_list:
+        indent_print(line)
+        print("\n")
 
 
 
