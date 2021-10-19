@@ -12,19 +12,29 @@ length = len(order)
 known_letters = order.replace("-","")
 keys = input("Keyword(s): ")
 
-if order == known_letters:
-    with open("MeaningsOneLine.txt","r") as f:
-        for line in f:
-            word = line.split("::")[0]
-            if word == order:
-                indent_print(line)
-                quit()
-
 def containsAll(str, set):
+    str = str.lower()
+    set = set.lower()
+    if str == "eat":
+        t = 1
     for c in set:
-        if c not in str and c.upper() not in str:
+        num = str.count(c)
+        if num == 0:
             return False
+        else:
+            str = str.replace(c,"")
+            for x in range(0,num-1):
+                str += c
     return True
+
+if order == known_letters:
+    if keys != "-jumble-":
+        with open("MeaningsOneLine.txt","r") as f:
+            for line in f:
+                word = line.split("::")[0]
+                if word.lower() == order.lower():
+                    indent_print(line)
+                    quit()
 
 word_list = []
 with open("MeaningsOneLine.txt","r") as f:
@@ -33,6 +43,11 @@ with open("MeaningsOneLine.txt","r") as f:
         if len(word) == length:
             if containsAll(word, known_letters):
                 word_list.append(line)
+
+if keys == "-jumble-":
+    for line in word_list:
+        indent_print(line)
+        print("\n")
 
 order_count = 0
 check_possition = 0

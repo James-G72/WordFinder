@@ -36,10 +36,12 @@ with open("MeaningsMultiLine.txt","r") as f:
         word = line.split(" ")[0]
         if word == prev_word:
             string += "__"+line.replace(word,"").replace("\n","")
-            prev_word = word
         else:
             line_build.append(string)
             string = ""+word+"::"+"__"+line.replace(word,"").replace("\n","")
+        prev_word = word
+
+
 with open("MeaningsOneLine.txt","w") as f:
     for string in line_build:
         f.write(string)
