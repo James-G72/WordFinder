@@ -55,7 +55,7 @@ for char in order:
     if char != "-":
         check_possition = 0
         while check_possition < len(word_list):
-            if word_list[check_possition].split("::")[0][order_count] != char:
+            if word_list[check_possition].split("::")[0][order_count].lower() != char:
                 word_list.remove(word_list[check_possition])
             else:
                 check_possition += 1
