@@ -28,7 +28,7 @@ def containsAll(str, set):
     return True
 
 if order == known_letters:
-    if keys != "-jumble-":
+    if keys != "j":
         with open("MeaningsOneLine.txt","r") as f:
             for line in f:
                 word = line.split("::")[0]
