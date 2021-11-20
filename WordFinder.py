@@ -7,7 +7,7 @@ def indent_print(line):
         print(indent+line.replace("\n",""))
 
 # Asking for parameters
-order = input("Use hyphens and letters to describe known letter locations. Example: letter would be --t-e-")
+order = input("Use hyphens and letters to describe known letter locations. Example: letter would be --t-e-  ")
 length = len(order)
 known_letters = order.replace("-","")
 keys = input("Keyword(s): ")
